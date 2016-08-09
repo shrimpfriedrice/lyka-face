@@ -4,7 +4,7 @@
 import cv2
 import os
 
-base_path = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.dirname(os.path.realpath(__file__))
 video_path = base_path + '/vid/'
 haarcascade_path = base_path + '/haarcascades/'
 
