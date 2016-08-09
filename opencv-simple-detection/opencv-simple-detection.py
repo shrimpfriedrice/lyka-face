@@ -11,7 +11,7 @@ haarcascade_path = base_path + '/haarcascades/'
 #webcam
 #video_stream = cv2.VideoCapture(0)
 
-video_name = "familyguy.mp4"
+video_name = "familyguy-short.mp4"
 video_stream = cv2.VideoCapture(video_path + video_name)
 
 face_cascade = cv2.CascadeClassifier(haarcascade_path + 'haarcascade_frontalface_default.xml')
