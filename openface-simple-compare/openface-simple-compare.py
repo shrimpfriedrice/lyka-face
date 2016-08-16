@@ -8,6 +8,7 @@ import cv2
 import openface
 import time
 import itertools
+import argparse
 
 base_path = os.path.dirname(os.path.realpath(__file__))
 dlib_face_predictor_model_path = os.path.join(base_path, 'models/dlib/shape_predictor_68_face_landmarks.dat')
@@ -15,9 +16,13 @@ openface_network_model_path = os.path.join(base_path, 'models/openface/nn4.small
 
 img_dimension = 96
 
+parser = argparse.ArgumentParser()
+parser.add_argument('images', type=str, nargs="+", help="Images to compare.")
+input_arguments = parser.parse_args()
+
 start_time = time.time()
 align = openface.AlignDlib(dlib_face_predictor_model_path)
-network = openface.TorchNeuralNet(openface_network_model_path, img_dimensions)
+network = openface.TorchNeuralNet(openface_network_model_path, img_dimension)
 print ("loading align and network model took {} seconds".format(time.time() - start_time))
 
 #get representation by feeding img into neural net
@@ -45,6 +50,8 @@ def openface_network_forward_pass(img_path):
     print ("openface forward pass took {} seconds".format(time.time()-start_time))
     return representation
 
-#for (image_1, image_2) in itertools.combinations()
-
-
+for (image_1, image_2) in itertools.combinations(input_arguments.images, 2):
+    distance = openface_network_forward_pass(image_1) - openface_network_forward_pass(image_2)
+    squared_l2_distance = np.dot(distance, distance)
+    print("Compare representations of {} with {}.".format(image_1, image_2))
+    print(" -> " + "Squared l2 distance: {:0.3f}".format(squared_l2_distance))
