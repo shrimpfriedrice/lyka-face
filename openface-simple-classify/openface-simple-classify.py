@@ -149,5 +149,4 @@ def getRep(imgPath, align, net):
 align_faces_dlib()
 generate_representations_openface()
 train_classifier()
-
 infer_classifier()
