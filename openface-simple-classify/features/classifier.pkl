@@ -181,7 +181,7 @@ Rp73
 tp74
 g62
 I00
-S'\x142K\xc6LL#@'
+S'\x0fJ\xf3\xc0LL#@'
 p75
 tp76
 bsS'_sparse'
@@ -338,7 +338,7 @@ Rp135
 tp136
 g62
 I00
-S'/\xe7&tp\x8e\xd6\xbf'
+S'`)pZp\x8e\xd6\xbf'
 p137
 tp138
 bsS'cache_size'
