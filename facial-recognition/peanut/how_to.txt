@@ -1,0 +1,7 @@
+?VID?: video for session
+
+1. update ?VID? in every python file
+2. extract_faces.py (remember to update ?VID?)
+3a. clear out /img/?VID?/raw if its not raw
+3b. manually sort in /img/?VID?/dump into /../raw/person1, /.../person2, ...
+4. process_face.py (remember to update ?VID?)
